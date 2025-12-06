@@ -3,6 +3,7 @@
 
 int main(void) {
     double a1;
+    int a1_p, a1_q;
     double r;
     int p, q;
     int N;
@@ -27,18 +28,21 @@ int main(void) {
             break;
         } 
         else if (menu == 1) {
-            printf("\n=== 무한 등비급수: Σ a1 * r^(n-1), n = 1, 2, 3, ... ===\n");
-
-            printf("a1(첫째항)을 입력하세요: ");
-            if (scanf("%lf", &a1) != 1) {
-                printf("a1 입력 오류입니다.\n");
+            printf("a1(첫째항)을 분수 p/q 형태로 입력하세요 : ");
+            if (scanf("%d/%d", &a1_p, &a1_q) != 2) {
+                printf("첫째항 a1은 p/q 형태의 분수로 입력해야 합니다.\n");
                 return 1;
             }
+            if (a1_q == 0) {
+                printf("분모는 0이 될 수 없습니다.\n");
+                return 1;
+            }
+            a1 = (double)a1_p / (double)a1_q;
 
             /* 공비를 분수 형태로만 입력받기 */
             printf("r(공비)를 분수 p/q 형태로 입력하세요 : ");
             if (scanf("%d/%d", &p, &q) != 2) {
-                printf("공비는 반드시 a/b 형태의 분수로 입력해야 합니다.\n");
+                printf("공비는 a/b 형태의 분수로 입력해야 합니다.\n");
                 return 1;
             }
             if (q == 0) {
