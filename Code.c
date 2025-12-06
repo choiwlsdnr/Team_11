@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
 
@@ -26,7 +27,7 @@ int main(void) {
         if (menu == 0) {
             printf("프로그램을 종료합니다.\n");
             break;
-        } 
+        }
         else if (menu == 1) {
             printf("a1(첫째항)을 분수 p/q 형태로 입력하세요 : ");
             if (scanf("%d/%d", &a1_p, &a1_q) != 2) {
@@ -64,14 +65,16 @@ int main(void) {
                 printf("\n[수렴]\n");
                 printf("무한 등비급수는 수렴합니다.\n");
                 printf("무한급수의 합 S = %.6f\n", S_inf);
-            } else {
+            }
+            else {
                 printf("\n[발산]\n");
                 printf("무한 등비급수는 발산합니다.\n");
             }
 
             if (r == 1.0) {
                 Sn = a1 * N;
-            } else {
+            }
+            else {
                 Sn = a1 * (1.0 - pow(r, (double)N)) / (1.0 - r);
             }
 
@@ -84,7 +87,7 @@ int main(void) {
                 printf("무한급수의 합 S와 S_N의 오차 |S - S_N| = %.6f\n", error);
             }
 
-        } 
+        }
         else {
             printf("잘못된 메뉴입니다. 0 또는 1을 입력하세요.\n");
         }
